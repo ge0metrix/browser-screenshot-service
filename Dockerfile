@@ -6,7 +6,8 @@ EXPOSE 5042
 
 RUN apt update && apt install -y python3-selenium chromium chromium-driver python3-pip vim gcc python3-dev
 COPY requirements.txt /opt/app/
-RUN pip3 install -r /opt/app/requirements.txt
+RUN pip3 install -U setuptools pip \ 
+    && pip3 install -r /opt/app/requirements.txt
 
 COPY *.py /opt/app/
 
